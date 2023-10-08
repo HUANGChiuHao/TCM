@@ -43,23 +43,35 @@ for num in range(1, 101):
         # 将临时txt中的【功能与主治】导出至其临时txt
         index_function = paragraphs_function.find("【功能与主治】", 0, len(paragraphs_function))
         finish_function = paragraphs_function.find("【", index_function + 1, len(paragraphs_function))
-        fw_function = open("F:\\Files\\Files\\作业\\大创\\python\\cache\\function.txt", 'w', encoding='utf-8')
-        fw_function.truncate(0)
-        fw_function.write(paragraphs_function[index_function: finish_function])
+        fw_function_mid = open("F:\\Files\\Files\\作业\\大创\\python\\cache\\function_mid.txt", 'w+', encoding='utf-8')
+        fw_function = open("F:\\Files\\Files\\作业\\大创\\python\\cache\\function_mid.txt", 'w', encoding='utf-8')
+        fw_function_mid.truncate(0)
+        fw_function_mid.write(paragraphs_function[index_function: finish_function])
+        for text in fw_function_mid.readlines():
+            if text.split():
+                fw_function.write(text)
 
         # 将临时txt中的【用法与用量】导出至其临时txt
         index_usage = paragraphs_usage.find("【用法与用量】", 0, len(paragraphs_usage))
         finish_usage = paragraphs_usage.find("【", index_usage + 1, len(paragraphs_usage))
+        fw_usage_mid = open("F:\\Files\\Files\\作业\\大创\\python\\cache\\usage_mid.txt", 'w+', encoding='utf-8')
         fw_usage = open("F:\\Files\\Files\\作业\\大创\\python\\cache\\usage.txt", 'w', encoding='utf-8')
-        fw_usage.truncate(0)
-        fw_usage.write(paragraphs_usage[index_usage: finish_usage])
+        fw_usage_mid.truncate(0)
+        fw_usage_mid.write(paragraphs_usage[index_usage: finish_usage])
+        for text in fw_usage_mid.readlines():
+            if text.split():
+                fw_usage.write(text)
 
         # 将临时txt中的【注意】导出至其临时txt
         index_caution = paragraphs_caution.find("【注意】", 0, len(paragraphs_caution))
         finish_caution = paragraphs_caution.find("【", index_caution + 1, len(paragraphs_caution))
+        fw_caution_mid = open("F:\\Files\\Files\\作业\\大创\\python\\cache\\caution_mid.txt", 'w+', encoding='utf-8')
         fw_caution = open("F:\\Files\\Files\\作业\\大创\\python\\cache\\caution.txt", 'w', encoding='utf-8')
-        fw_caution.truncate(0)
-        fw_caution.write(paragraphs_caution[index_caution: finish_caution])
+        fw_caution_mid.truncate(0)
+        fw_caution_mid.write(paragraphs_caution[index_caution: finish_caution])
+        for text in fw_caution_mid.readlines():
+            if text.split():
+                fw_caution.write(text)
 
         # 将临时txt中的药物名称导出至其临时txt
         fw_name = open("F:\\Files\\Files\\作业\\大创\\python\\cache\\name.txt", 'w', encoding='utf-8')
